@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Капітошка — мобільна станція очистки води. Чиста вода прямо біля твого дому. Екологічно, доступно, мобільно.">
+    <title>Капітошка • Чиста вода — там, де ти!</title>
+    <style>
+         :root {
+            --primary: #00b4ff;
+            --accent: #00d4aa;
+            --dark: #0a2540;
+            --light: #f0f9ff;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* NAVIGATION */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2f0ff;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 180, 255, 0.3);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 180, 255, 0.4);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        /* HERO SECTION */
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #00b4ff 0%, #00d4aa 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 320%22%3E%3Cpath fill=%22%23ffffff%22 fill-opacity=%220.15%22 d=%22M0,192L48,197.3C96,203,192,213,288,213.3C384,213,480,203,576,186.7C672,171,768,149,864,154.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z%22%3E%3C/path%3E%3C/svg%27') repeat-x bottom;
+            animation: wave 25s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes wave {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: -1440px;
+            }
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+        
+        .hero-text p {
+            font-size: clamp(20px, 2.5vw, 26px);
+            margin-bottom: 32px;
+            opacity: 0.95;
+            max-width: 520px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-button {
+            background: white;
+            color: var(--dark);
+            font-size: 22px;
+            font-weight: 700;
+            padding: 18px 48px;
+            border-radius: 9999px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(0, 180, 255, 0.4);
+        }
+        
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px 28px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            white-space: nowrap;
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .water-drop {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(145deg, #ffffff, #bae6fd);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 80px rgba(255, 255, 255, 0.6), 0 25px 50px -12px rgb(0 180 255);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .water-drop svg {
+            width: 160px;
+            height: 160px;
+            filter: drop-shadow(0 10px 20px rgba(0, 180, 255, 0.3));
+        }
+        /* SECTION STYLES */
+        
+        section {
+            padding: 110px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(32px, 4vw, 46px);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        /* ABOUT SECTION */
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 22px;
+            line-height: 1.7;
+        }
+        
+        .about-text .tagline {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        /* PROBLEM-SOLUTION */
+        
+        .problem-solution {
+            background: #f0f9ff;
+        }
+        
+        .ps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+        
+        .ps-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 180, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .ps-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .ps-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #ef4444;
+        }
+        
+        .ps-card.solution h3 {
+            color: var(--accent);
+        }
+        /* FEATURES */
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 180 255);
+        }
+        
+        .feature-icon {
+            width: 74px;
+            height: 74px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 34px;
+        }
+        /* METRICS */
+        
+        .metrics {
+            background: linear-gradient(135deg, var(--dark), #112a4a);
+            color: white;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .metric-item h3 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .metric-item p {
+            font-size: 19px;
+            opacity: 0.9;
+        }
+        /* TESTIMONIALS */
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 36px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '“';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 120px;
+            line-height: 1;
+            opacity: 0.08;
+            font-family: serif;
+            color: var(--primary);
+        }
+        
+        .testimonial-author {
+            margin-top: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        /* CTA SECTION */
+        
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: clamp(36px, 5vw, 52px);
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            font-size: 24px;
+            margin-bottom: 48px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            background: white;
+            color: var(--dark);
+            font-size: 26px;
+            font-weight: 700;
+            padding: 22px 64px;
+            border-radius: 9999px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.1);
+        }
+        /* FOOTER */
+        
+        footer {
+            background: #0a2540;
+            color: #bae6fd;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bae6fd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact {
+            font-size: 17px;
+        }
+        
+        .footer-contact a {
+            color: #bae6fd;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(186, 230, 253, 0.2);
+            font-size: 15px;
+            opacity: 0.7;
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 30px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            section {
+                padding: 80px 0;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        /* ANIMATIONS */
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav id="nav">
+        <div class="container nav-content">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                💧 <span>Капітошка</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#problem">Проблема та рішення</a></li>
+                <li><a href="#features">Чому ми</a></li>
+                <li><a href="#metrics">Досягнення</a></li>
+                <li><a href="#testimonials">Відгуки</a></li>
+                <li><a href="#cta">Почати</a></li>
+            </ul>
+
+            <!-- CTA button -->
+            <a href="#cta" class="nav-cta">Набери воду зараз</a>
+
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Меню">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Майбутнє питної води вже на твоїй вулиці</h1>
+                <p>Потужна мобільна фільтрація, що перетворює будь-яке джерело на ідеальну воду. Свіжо, екологічно та максимально близько.</p>
+
+                <div class="hero-cta">
+                    <a href="#cta" class="hero-button">
+                        just drink it!
+                        <span style="font-size: 28px;">💧</span>
+                    </a>
+                    <div class="hero-badge">
+                        Порекомендовано вже більш ніж у 20 селах
+                    </div>
+                </div>
+
+                <p style="margin-top: 40px; font-size: 18px; opacity: 0.9; display: flex; align-items: center; gap: 12px; justify-content: center;">
+                    <span style="background: rgba(255,255,255,0.3); padding: 4px 14px; border-radius: 30px;">Чиста вода — там, де ти!</span>
+                </p>
+            </div>
+
+            <!-- Visual -->
+            <div class="hero-visual">
+                <div class="water-drop">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="#00b4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.5L8 8.5C6 12 6 16 12 22C18 16 18 12 16 8.5L12 2.5Z"/>
+                        <circle cx="12" cy="13" r="3" fill="#00b4ff"/>
+                        <path d="M19 18 L5 18" stroke="#ffffff" stroke-width="2"/>
+                        <path d="M18 21 L6 21" stroke="#ffffff" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div style="position: absolute; bottom: -30px; right: 40px; background: white; color: var(--dark); padding: 12px 24px; border-radius: 9999px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px; white-space: nowrap;">
+                    Мобільна станція
+                    <div style="width: 12px; height: 12px; background: #00d4aa; border-radius: 50%; animation: pulse 2s infinite;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / PRODUCT OVERVIEW -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Про «Капітошку»</h2>
+            </div>
+
+            <div class="about-grid">
+                <div>
+                    <p class="about-text">
+                        <span class="tagline">Капітошка я-а малий,<br>Мені всі друзі я такий...</span>
+                        <br><br> Ми — інноваційна мобільна установка, яка очищує воду з місцевих джерел і продає її жителям без потреби централізованого водопостачання.
+                    </p>
+                    <p style="margin-top: 30px; font-size: 24px; font-weight: 700; color: var(--accent);">
+                        Використання продукту: пити!!!111
+                    </p>
+                    <p style="margin-top: 20px; font-size: 18px; color: var(--gray);">
+                        Просто під’їжджаємо до твого села — і за 15 хвилин ти вже п’єш найчистішу воду у своєму житті.
+                    </p>
+                </div>
+
+                <div style="background: white; border-radius: 28px; padding: 40px; box-shadow: 0 20px 40px rgba(0,180,255,0.15);">
+                    <h3 style="margin-bottom: 20px; font-size: 26px;">Як це працює?</h3>
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div style="display: flex; gap: 16px;">
+                            <div style="width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
+                            <div>Приїжджаємо до будь-якого джерела (річка, свердловина, колодязь)</div>
+                        </div>
+                        <div style="display: flex; gap: 16px;">
+                            <div style="width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
+                            <div>Мультиступенева фільтрація + УФ-стерилізація</div>
+                        </div>
+                        <div style="display: flex; gap: 16px;">
+                            <div style="width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
+                            <div>Розливаємо у твою тару або в екологічні 5-л та 19-л бутлі</div>
+                        </div>
+                        <div style="display: flex; gap: 16px;">
+                            <div style="width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">4</div>
+                            <div>Ти п’єш чисту воду за ціною нижчою, ніж бутильована</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM AND SOLUTION -->
+    <section class="problem-solution" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2>Доступність питної води</h2>
+            </div>
+
+            <div class="ps-grid">
+                <!-- Problem -->
+                <div class="ps-card">
+                    <h3>Проблема</h3>
+                    <p style="font-size: 20px; line-height: 1.6;">
+                        Внутрішні води поступово засмічуються великими компаніями, тому є ми.<br><br> Жителі малих міст і сіл щодня стикаються з низькою якістю або повною відсутністю доступної питної води.
+                    </p>
+                    <div style="margin-top: 30px; padding: 16px; background: #fee2e2; border-radius: 16px; color: #b91c1c; font-weight: 600;">
+                        ❌ Брудна вода<br> ❌ Довгі поїздки за бутилями<br> ❌ Висока ціна на бутильовану воду
+                    </div>
+                </div>
+
+                <!-- Solution -->
+                <div class="ps-card solution">
+                    <h3>Рішення</h3>
+                    <p style="font-size: 20px; line-height: 1.6;">
+                        Станціонарні станції очистки води? Ні. Ми — мобільні!<br><br> Наша станція очистки води Капітошка приїжджає прямо до тебе.
+                    </p>
+                    <div style="margin-top: 30px; padding: 16px; background: #ecfdf5; border-radius: 16px; color: #10b981; font-weight: 600;">
+                        ✅ Мобільність без обмежень<br> ✅ Нижча ціна<br> ✅ Екологічно чисто<br> ✅ Чиста вода за 15 хвилин
+                    </div>
+                    <p style="margin-top: 40px; text-align: center; font-size: 28px; font-weight: 800; color: var(--accent);">
+                        Чиста вода
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES / ADVANTAGES -->
+    <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Чому обирають нас</h2>
+            </div>
+
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Мобільність без обмежень</h3>
+                    <p>Станція легко переміщується між населеними пунктами, забезпечуючи доступ до чистої води навіть у віддалених районах.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Доступна ціна для кожного</h3>
+                    <p>Вартість води значно нижча за бутильовану, що робить її регулярне споживання економічно вигідним.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Екологічне рішення</h3>
+                    <p>Зменшується використання пластикових пляшок, що позитивно впливає на довкілля та скорочує кількість відходів.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS / ACHIEVEMENTS -->
+    <section class="metrics" id="metrics">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <h2>Наші досягнення</h2>
+                <p style="color: #bae6fd;">Цифри, які говорять самі за себе (демонстраційні значення для прикладу)</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <h3 id="counter1" data-target="50000">0</h3>
+                    <p>Літрів чистої води видано за місяць</p>
+                </div>
+                <div class="metric-item">
+                    <h3 id="counter2" data-target="98">0</h3>
+                    <p>Задоволених клієнтів, що повернулися знову</p>
+                </div>
+                <div class="metric-item">
+                    <h3 id="counter3" data-target="15">0</h3>
+                    <p>Хвилин — середній час розгортання станції на новій локації</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Хто вже з «Капітошкою»</h2>
+                <p>Нас рекомендують</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p>Раніше доводилося їхати в місто за бутлями, а тепер машина з водою стоїть прямо біля магазину. Смак — неймовірний!</p>
+                    <div class="testimonial-author">Олена, мешканка смт</div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p>Для моєї родини це справжній порятунок. Дешево, швидко і головне — я бачу, як вона фільтрується.</p>
+                    <div class="testimonial-author">Іван Петрович, фермер</div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p>Завдяки Капітошці ми вирішили проблему з питною водою в школі за один тиждень.</p>
+                    <div class="testimonial-author">Локальна громада «Світанок»</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta" id="cta">
+        <div class="container cta-content">
+            <h2>Готовий спробувати справжню воду?</h2>
+            <p>Не чекай, поки екологія відновиться сама. Забезпеч себе та родину чистою водою вже сьогодні.</p>
+            <a href="#" onclick="handleCTAClick(event)" class="cta-button">
+                Набери чисту воду біля свого дому
+                <span style="margin-left: 16px; font-size: 32px;">🚀</span>
+            </a>
+            <p style="margin-top: 40px; font-size: 18px; opacity: 0.85;">
+                Ми вже в 20+ селах. Хочеш — приїдемо і до тебе!
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <div class="footer-logo">Капітошка <span>CleanWater</span></div>
+                <p style="max-width: 340px; font-size: 18px;">Мобільні технології для екологічного майбутнього.</p>
+                <p style="margin-top: 30px; font-size: 15px; opacity: 0.7;">
+                    Екологія водопостачання • Малий бізнес • Чиста вода для кожного
+                </p>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 20px; font-size: 18px;">Швидкі посилання</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">Про «Капітошку»</a></li>
+                    <li><a href="#features">Переваги</a></li>
+                    <li><a href="#metrics">Досягнення</a></li>
+                    <li><a href="#testimonials">Відгуки</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 style="margin-bottom: 20px; font-size: 18px;">Зв’яжіться з нами</h4>
+                <p><strong>Email:</strong> <a href="mailto:hello@kapitoshka-water.com">hello@kapitoshka-water.com</a></p>
+                <p style="margin-top: 12px;"><strong>Телефон:</strong> <a href="tel:+380441234567">+380 (44) 123-45-67</a></p>
+                <p style="margin-top: 30px; font-size: 15px;">
+                    Працюємо щодня з 8:00 до 20:00<br> Готові приїхати до тебе вже завтра!
+                </p>
+            </div>
+        </div>
+
+        <div class="container copyright">
+            © 2026 Капітошка. Всі права захищені. Чиста вода — там, де ти!
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Головний скрипт для повноцінної роботи сайту
+         * Повністю автономний, без зовнішніх залежностей
+         */
+
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const hamburger = document.getElementById('hamburger')
+            const navMenu = document.getElementById('nav-menu')
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active')
+
+                // Анімація гамбургера
+                if (navMenu.classList.contains('active')) {
+                    hamburger.textContent = '✕'
+                    hamburger.style.fontSize = '32px'
+                } else {
+                    hamburger.textContent = '☰'
+                    hamburger.style.fontSize = '28px'
+                }
+            })
+
+            // Закривати меню після кліку на посилання
+            const links = navMenu.querySelectorAll('a')
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active')
+                    hamburger.textContent = '☰'
+                    hamburger.style.fontSize = '28px'
+                })
+            })
+        }
+
+        // Анімація лічильників
+        function animateCounters() {
+            const counters = document.querySelectorAll('.metric-item h3')
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target
+                        const target = parseInt(counter.getAttribute('data-target'))
+                        let count = 0
+                        const increment = Math.ceil(target / 80)
+
+                        const timer = setInterval(() => {
+                            count += increment
+                            if (count >= target) {
+                                count = target
+                                clearInterval(timer)
+
+                                // Додаємо "+" для першого лічильника
+                                if (counter.id === 'counter1') {
+                                    counter.textContent = target.toLocaleString('uk-UA') + '+'
+                                } else if (counter.id === 'counter2') {
+                                    counter.textContent = target + '%'
+                                } else {
+                                    counter.textContent = target
+                                }
+                            } else {
+                                counter.textContent = count
+                            }
+                        }, 24)
+
+                        observer.unobserve(counter)
+                    }
+                })
+            }, {
+                threshold: 0.6
+            })
+
+            counters.forEach(counter => observer.observe(counter))
+        }
+
+        // Плавна поява секцій при скролі
+        function initFadeInSections() {
+            const sections = document.querySelectorAll('section')
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in', 'visible')
+                    }
+                })
+            }, {
+                threshold: 0.15
+            })
+
+            sections.forEach(section => {
+                section.classList.add('fade-in')
+                observer.observe(section)
+            })
+        }
+
+        // Обробка кліку на головну кнопку CTA
+        window.handleCTAClick = function(e) {
+            e.preventDefault()
+
+            const button = e.currentTarget
+            const originalText = button.innerHTML
+
+            // Ефект натискання
+            button.style.transform = 'scale(0.95)'
+            setTimeout(() => {
+                button.style.transform = 'scale(1)'
+            }, 120)
+
+            // Повідомлення про успіх
+            const message = document.createElement('div')
+            message.style.cssText = `
+                position: fixed; 
+                bottom: 30px; 
+                left: 50%; 
+                transform: translateX(-50%);
+                background: #10b981; 
+                color: white; 
+                padding: 16px 32px; 
+                border-radius: 9999px; 
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+                font-weight: 700;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                white-space: nowrap;
+            `
+            message.innerHTML = `
+                💧 Вітаємо, бусік для оновлення військових документів уже виїхав!<br>
+                <small style="opacity:0.9; font-weight:400;">Очікуй дзвінок протягом 2 годин</small>
+            `
+            document.body.appendChild(message)
+
+            // Автозникнення
+            setTimeout(() => {
+                message.style.transition = 'all 0.4s ease'
+                message.style.opacity = '0'
+                message.style.transform = 'translateX(-50%) translateY(30px)'
+                setTimeout(() => message.remove(), 400)
+            }, 3800)
+
+            // Прокрутка до навігації (імітація)
+            console.log('%c✅ Користувач натиснув "Набери чисту воду біля свого дому"', 'color:#00d4aa; font-size:16px; font-weight:bold')
+
+            // Повертаємо оригінальний текст кнопки
+            setTimeout(() => {
+                button.innerHTML = originalText
+            }, 4200)
+        }
+
+        // Інтерактивна анімація краплі в hero (додаткова)
+        function addHeroInteraction() {
+            const drop = document.querySelector('.water-drop')
+            if (drop) {
+                drop.addEventListener('mousemove', (e) => {
+                    const rect = drop.getBoundingClientRect()
+                    const x = (e.clientX - rect.left) / rect.width - 0.5
+                    const y = (e.clientY - rect.top) / rect.height - 0.5
+
+                    drop.style.transform = `perspective(800px) rotateX(${y * -18}deg) rotateY(${x * 18}deg)`
+                })
+
+                drop.addEventListener('mouseleave', () => {
+                    drop.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                    drop.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)'
+                    setTimeout(() => {
+                        drop.style.transition = ''
+                    }, 600)
+                })
+            }
+        }
+
+        // Головна ініціалізація
+        function initializeApp() {
+            console.log('%c🚀 Сайт Капітошка запущено! Чиста вода вже на шляху до тебе.', 'color:#00b4ff; font-size:18px; font-weight:800')
+
+            initMobileMenu()
+            animateCounters()
+            initFadeInSections()
+            addHeroInteraction()
+
+            // Підсвітка активного пункту меню при скролі
+            window.addEventListener('scroll', () => {
+                const sections = ['about', 'problem', 'features', 'metrics', 'testimonials', 'cta']
+                const navLinks = document.querySelectorAll('.nav-menu a')
+
+                let current = ''
+
+                sections.forEach(sectionId => {
+                    const section = document.getElementById(sectionId)
+                    if (!section) return
+
+                    const sectionTop = section.offsetTop
+
+                    if (scrollY >= sectionTop - 200) {
+                        current = sectionId
+                    }
+                })
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link')
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.style.color = 'var(--primary)'
+                    } else {
+                        link.style.color = ''
+                    }
+                })
+            })
+
+            console.log('✅ Всі інтерактивні елементи ініціалізовано. Сайт повністю готовий до використання.')
+        }
+
+        // Запуск після завантаження сторінки
+        window.onload = initializeApp
+    </script>
+</body>
+
+</html>
